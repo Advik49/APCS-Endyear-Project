@@ -1,4 +1,6 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1717005045
-floor.tscn::PackedScene::6743940261679546380::1717004980::0::1::::<><>::
-::res://levels/::1717005045
+::res://::1717436679
+player_1.gd::GDScript::-1::1717006936::0::1::::<>CharacterBody3D<>::
+player_1.tscn::PackedScene::8226479137841784279::1717436352::0::1::::<><>::res://player_1.gd
+::res://levels/::1717436351
+floor.tscn::PackedScene::6743940261679546380::1717436351::0::1::::<><>::uid://dpg756m4cd7s2
