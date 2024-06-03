@@ -1,1 +1,4 @@
-res://dosapjfdasf.tscn
+res://floor.tscn
+res://player_1.tscn
+res://levels/floor.tscn
+res://player_1.gd

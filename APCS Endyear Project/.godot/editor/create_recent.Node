@@ -1,4 +1,9 @@
+CharacterBody3D
+Camera3D
+MeshInstance3D
+Node3D
+CollisionShape3D
+StaticBody3D
 CSGBox3D
 DirectionalLight3D
 Node2D
-Node3D
