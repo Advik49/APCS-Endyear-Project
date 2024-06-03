@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgq8ydt78b58b"]
+
+[ext_resource type="PlaneMesh" uid="uid://xipo3cwgsfvn" path="res://water_floor.tres" id="1_uoatk"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_uoatk")
