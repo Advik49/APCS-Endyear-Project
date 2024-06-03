@@ -1,31 +1,64 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpg756m4cd7s2"]
+[gd_scene load_steps=3 format=3 uid="uid://dpg756m4cd7s2"]
 
-[ext_resource type="Script" path="res://player_1.gd" id="1_udsy3"]
+[sub_resource type="GDScript" id="GDScript_ygdx4"]
+script/source = "extends CharacterBody3D
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_edi5f"]
+@export var speed = 10
+@export var accel = 10
+@export var gravity = 50
+@export var jump = 15
+@export var sensitivity = 0.2
+@export var max_angle = 90
+@export var min_angle = -80
+@onready var head = $Head
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_0p2sa"]
+var look_rot = Vector3.ZERO
+var move_dir = Vector3.ZERO
+var velocity = Vector3.ZERO
 
-[sub_resource type="BoxMesh" id="BoxMesh_0nxmx"]
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jgfg"]
-albedo_color = Color(0, 0, 0, 1)
+
+func _physics_process(delta):
+	#set rotation
+	head.rotation_degrees.x = look_rot.x
+	rotation_degrees.y = look_rot.y
+	
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	elif Input.is_action_just_pressed(\"jump\"):
+		velocity.y = jump
+	
+	move_dir = Vector3(
+		Input.get_axis(\"left\", \"right\"),
+		0,
+		Input.get_axis(\"up\", \"down\")
+	).normalized().rotated(Vector3.UP, rotation.y)
+	
+	velocity.x = lerp(velocity.x, move_dir.x * speed, accel * delta)
+	velocity.z = lerp(velocity.z, move_dir.z * speed, accel * delta)
+	
+	velocity = move_and_slide(velocity, Vector3.UP)
+
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		look_rot.y -= (event.relative.x * sensitivity)
+		look_rot.x -= (event.relative.y * sensitivity)
+		look_rot.x = clamp(look_rot.x, min_angle, max_angle)
+"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ishag"]
 
 [node name="Player1" type="CharacterBody3D"]
-script = ExtResource("1_udsy3")
+script = SubResource("GDScript_ygdx4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_edi5f")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04438, 0)
+shape = SubResource("CapsuleShape3D_ishag")
 
-[node name="CharacterModel" type="Node3D" parent="."]
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53609, 0)
 
-[node name="Body" type="MeshInstance3D" parent="CharacterModel"]
-mesh = SubResource("CapsuleMesh_0p2sa")
-
-[node name="Visor" type="MeshInstance3D" parent="CharacterModel"]
-transform = Transform3D(0.765307, 0, 0, 0, 0.492724, 0, 0, 0, 0.390014, 0, 0.503693, 0.319425)
-mesh = SubResource("BoxMesh_0nxmx")
-surface_material_override/0 = SubResource("StandardMaterial3D_0jgfg")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.999999, 0, 0.00104729, 0, 1, 0, -0.00104729, 0, -0.999999, 0, 0.548903, 0.141059)
+[node name="Camera3D" type="Camera3D" parent="Head"]
