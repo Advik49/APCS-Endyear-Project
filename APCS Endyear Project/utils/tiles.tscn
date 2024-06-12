@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://x5pb75mddpu2"]
+[gd_scene load_steps=6 format=3 uid="uid://x5pb75mddpu2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qu5cd"]
 albedo_color = Color(0.247059, 0.247059, 0.247059, 1)
@@ -10,15 +10,11 @@ size = Vector3(2, 6, 2)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rao4a"]
 data = PackedVector3Array(-1, 3, 1, 1, 3, 1, -1, -3, 1, 1, 3, 1, 1, -3, 1, -1, -3, 1, 1, 3, -1, -1, 3, -1, 1, -3, -1, -1, 3, -1, -1, -3, -1, 1, -3, -1, 1, 3, 1, 1, 3, -1, 1, -3, 1, 1, 3, -1, 1, -3, -1, 1, -3, 1, -1, 3, -1, -1, 3, 1, -1, -3, -1, -1, 3, 1, -1, -3, 1, -1, -3, -1, 1, 3, 1, -1, 3, 1, 1, 3, -1, -1, 3, 1, -1, 3, -1, 1, 3, -1, -1, -3, 1, 1, -3, 1, -1, -3, -1, 1, -3, 1, 1, -3, -1, -1, -3, -1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_npiyg"]
-albedo_color = Color(0.40079, 0.0096199, 0.00533598, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_t0vc2"]
+size = Vector3(2, 2, 2)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_a5kuq"]
-material = SubResource("StandardMaterial3D_npiyg")
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_mcy5v"]
-vertices = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, -1)
-polygons = [PackedInt32Array(0, 1, 2), PackedInt32Array(1, 3, 2)]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ouceq"]
+data = PackedVector3Array(-1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1)
 
 [node name="Tiles" type="Node"]
 
@@ -31,8 +27,10 @@ mesh = SubResource("BoxMesh_mhqrq")
 shape = SubResource("ConcavePolygonShape3D_rao4a")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5586, 0, 0)
-mesh = SubResource("PlaneMesh_a5kuq")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9026, 0, 0)
+mesh = SubResource("BoxMesh_t0vc2")
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Floor"]
-navigation_mesh = SubResource("NavigationMesh_mcy5v")
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ouceq")

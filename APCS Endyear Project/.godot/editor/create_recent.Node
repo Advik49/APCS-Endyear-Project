@@ -1,11 +1,13 @@
+MeshInstance3D
+OmniLight3D
+Node3D
+SpotLight3D
 GridMap
 NavigationRegion3D
 CSGBox3D
-MeshInstance3D
 CollisionShape3D
 CharacterBody3D
 Camera3D
-Node3D
 WorldEnvironment
 Node
 DirectionalLight3D

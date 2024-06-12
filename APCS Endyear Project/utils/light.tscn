@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bay7pewyf2v8x"]
+
+[ext_resource type="Script" path="res://OmniLight3D.gd" id="1_3cpe7"]
+
+[sub_resource type="Gradient" id="Gradient_4dkqs"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jmdal"]
+noise_type = 3
+frequency = 0.0364
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fh64k"]
+in_3d_space = true
+color_ramp = SubResource("Gradient_4dkqs")
+noise = SubResource("FastNoiseLite_jmdal")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2gaae"]
+
+[node name="Light" type="Node3D"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+script = ExtResource("1_3cpe7")
+noise = SubResource("NoiseTexture2D_fh64k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1.8, -1, 0, 0)
+mesh = SubResource("PlaneMesh_2gaae")
