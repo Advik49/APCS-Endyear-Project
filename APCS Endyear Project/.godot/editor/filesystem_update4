@@ -3,3 +3,8 @@ res://water_floor.tres
 res://player_1.tscn
 res://backgrou d.tscn
 res://utils/tiles.tscn
+res://utils/Level1.tscn
+res://utils/player.tscn
+res://utils/player.gd
+res://tileset.meshlib/tiles_new.meshlib
+res://utils/level1.tscn
