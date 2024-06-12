@@ -1,9 +1,8 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1717438848
-backgrou d.tscn::PackedScene::1276942984681758579::1717438788::0::1::::<><>::uid://cxmp2yomab0f4
-player_1.tscn::PackedScene::8226479137841784279::1717438788::0::1::::<><>::
-shader.gdshader::Shader::-1::1717438832::0::1::::<><>::
-water.gdshader::Shader::-1::1717436812::0::1::::<><>::
-water_floor.tres::PlaneMesh::6412917558169552179::1717436974::0::1::::<><>::res://water.gdshader
-::res://levels/::1717438788
-floor.tscn::PackedScene::6743940261679546380::1717438788::0::1::::<><>::uid://dpg756m4cd7s2
+::res://::1718215346
+coin.gltf::PackedScene::108750300817528702::1718215332::1718215338::1::::<><>::
+hud_coin.png::CompressedTexture2D::8518008604537187452::1718215346::1718215346::1::::<><>::
+::res://tileset.meshlib/::1718214991
+tileset.meshlib::MeshLibrary::735409379066998577::1718214991::0::1::::<><>::
+::res://utils/::1718215010
+tiles.tscn::PackedScene::1677189004622647111::1718215010::0::1::::<><>::
