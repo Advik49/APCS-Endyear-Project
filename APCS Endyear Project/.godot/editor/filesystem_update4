@@ -1,6 +1,4 @@
 res://levels/floor.tscn
 res://water_floor.tres
-res://shader.gdshader
 res://player_1.tscn
-res://player_1.gd
 res://backgrou d.tscn

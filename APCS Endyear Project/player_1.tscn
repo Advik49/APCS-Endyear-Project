@@ -14,7 +14,7 @@ script/source = "extends CharacterBody3D
 
 var look_rot = Vector3.ZERO
 var move_dir = Vector3.ZERO
-var velocity = Vector3.ZERO
+#var velocity = Vector3.ZERO
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -39,7 +39,7 @@ func _physics_process(delta):
 	velocity.x = lerp(velocity.x, move_dir.x * speed, accel * delta)
 	velocity.z = lerp(velocity.z, move_dir.z * speed, accel * delta)
 	
-	velocity = move_and_slide(velocity, Vector3.UP)
+	#velocity = move_and_slide(velocity, Vector3.UP)
 
 
 func _input(event):
