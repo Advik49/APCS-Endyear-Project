@@ -1,7 +1,9 @@
+GridMap
+MeshInstance3D
+Node
 CSGBox3D
 Camera3D
 Node3D
 CollisionShape3D
-MeshInstance3D
 DirectionalLight3D
 Node2D

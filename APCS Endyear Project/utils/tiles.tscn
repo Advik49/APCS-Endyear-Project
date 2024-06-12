@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://x5pb75mddpu2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qu5cd"]
+albedo_color = Color(0.247059, 0.247059, 0.247059, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mhqrq"]
+material = SubResource("StandardMaterial3D_qu5cd")
+size = Vector3(2, 6, 2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rao4a"]
+data = PackedVector3Array(-1, 3, 1, 1, 3, 1, -1, -3, 1, 1, 3, 1, 1, -3, 1, -1, -3, 1, 1, 3, -1, -1, 3, -1, 1, -3, -1, -1, 3, -1, -1, -3, -1, 1, -3, -1, 1, 3, 1, 1, 3, -1, 1, -3, 1, 1, 3, -1, 1, -3, -1, 1, -3, 1, -1, 3, -1, -1, 3, 1, -1, -3, -1, -1, 3, 1, -1, -3, 1, -1, -3, -1, 1, 3, 1, -1, 3, 1, 1, 3, -1, -1, 3, 1, -1, 3, -1, 1, 3, -1, -1, -3, 1, 1, -3, 1, -1, -3, -1, 1, -3, 1, 1, -3, -1, -1, -3, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_faoq4"]
+albedo_color = Color(0.607843, 0.607843, 0.607843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qqsro"]
+material = SubResource("StandardMaterial3D_faoq4")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_htiot"]
+data = PackedVector3Array(-1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1)
+
+[node name="Tiles" type="Node"]
+
+[node name="Wall" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_mhqrq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_rao4a")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9558, 0, 0)
+mesh = SubResource("BoxMesh_qqsro")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_htiot")
