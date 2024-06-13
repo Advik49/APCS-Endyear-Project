@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl2ghd0uyo3uf"]
+
+[ext_resource type="Script" path="res://timer_script.gd" id="1_bdjbi"]
+
+[node name="timer" type="Node2D"]
+script = ExtResource("1_bdjbi")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 44.0
+offset_bottom = 24.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
