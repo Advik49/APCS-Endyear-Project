@@ -65,16 +65,16 @@ offset_bottom = 652.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
-position = Vector2(119.054, 90.25)
-scale = Vector2(0.277679, 0.277679)
+position = Vector2(85.8036, 65.75)
+scale = Vector2(0.190179, 0.190179)
 texture = ExtResource("5_m1wr3")
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 212.0
-offset_top = 66.0
-offset_right = 252.0
-offset_bottom = 138.0
+offset_left = 163.0
+offset_top = 37.0
+offset_right = 203.0
+offset_bottom = 109.0
 theme_override_colors/font_color = Color(0.329412, 0.545098, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_t1v3k")
 theme_override_font_sizes/font_size = 50
@@ -82,10 +82,10 @@ text = "x"
 
 [node name="Counter" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 252.0
-offset_top = 58.0
-offset_right = 295.0
-offset_bottom = 137.0
+offset_left = 201.0
+offset_top = 33.0
+offset_right = 244.0
+offset_bottom = 112.0
 theme_override_colors/font_color = Color(0.329412, 0.545098, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_t1v3k")
 theme_override_font_sizes/font_size = 55

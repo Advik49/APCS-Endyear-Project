@@ -1,7 +1,9 @@
-Timer
+ColorRect
+Button
 Label
-Sprite2D
 Control
+Timer
+Sprite2D
 OmniLight3D
 AnimationPlayer
 Node3D

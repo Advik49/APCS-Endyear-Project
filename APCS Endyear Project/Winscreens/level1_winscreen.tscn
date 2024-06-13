@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhjnttnrv50my"]
+
+[ext_resource type="Script" path="res://Winscreens/Button.gd" id="1_iocsm"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 6208.0
+offset_bottom = 2775.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 3044.0
+offset_bottom = 1732.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 226.0
+offset_right = 3044.0
+offset_bottom = 911.0
+rotation = -0.0645772
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.431373, 0, 1, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 6
+theme_override_font_sizes/font_size = 400
+text = "You Win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1003.0
+offset_top = 910.0
+offset_right = 2133.0
+offset_bottom = 1191.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.0392157, 0.27451, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.0392157, 0.27451, 1, 1)
+theme_override_font_sizes/font_size = 200
+text = "NEXT LEVEL"
+flat = true
+script = ExtResource("1_iocsm")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

@@ -15,3 +15,8 @@ res://utils/orb.gd
 res://utils/Counter.gd
 res://Levels/level2.tscn
 res://Levels/level1.tscn
+res://Button.gd
+res://level1_winscreen.tscn
+res://Winscreens/level1_winscreen.tscn
+res://Levels/Counter.gd
+res://Winscreens/Button.gd

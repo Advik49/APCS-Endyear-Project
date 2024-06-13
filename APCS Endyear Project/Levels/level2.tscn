@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1qivhoh2g1l3"]
+[gd_scene load_steps=12 format=3 uid="uid://c1qivhoh2g1l3"]
 
 [ext_resource type="PackedScene" uid="uid://t1ib3fsd3muw" path="res://utils/player.tscn" id="1_j186h"]
 [ext_resource type="Texture2D" uid="uid://cjiajqtj1524p" path="res://utils/light.png" id="2_woo07"]
-[ext_resource type="Script" path="res://utils/Counter.gd" id="3_kdlwl"]
 [ext_resource type="MeshLibrary" uid="uid://ckrdgmpv5f2as" path="res://tileset.meshlib/tiles_new.meshlib" id="4_2f68n"]
 [ext_resource type="PackedScene" uid="uid://bay7pewyf2v8x" path="res://utils/light.tscn" id="5_6yhjc"]
+[ext_resource type="Script" path="res://utils/Counter2.gd" id="6_hsb63"]
 [ext_resource type="PackedScene" uid="uid://debnw0kt2w020" path="res://utils/orb.tscn" id="6_k1xsj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3jfbf"]
@@ -22,6 +22,8 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="SystemFont" id="SystemFont_dq15m"]
+
+[sub_resource type="SystemFont" id="SystemFont_lr1tp"]
 
 [node name="Level2" type="Node3D"]
 
@@ -49,13 +51,13 @@ transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 10, 1,
 [node name="Orbs" type="Node3D" parent="GridMap"]
 
 [node name="Orb" parent="GridMap/Orbs" instance=ExtResource("6_k1xsj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.518201, -11.9584)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.07943, 0.664521, -11.6227)
 
 [node name="Orb2" parent="GridMap/Orbs" instance=ExtResource("6_k1xsj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5769, 0.518201, -3.84069)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.75622, 0.664521, -9.65434)
 
 [node name="Orb3" parent="GridMap/Orbs" instance=ExtResource("6_k1xsj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.024, 0.518201, -8.73036)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3402, 0.664521, -9.65434)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -64,34 +66,37 @@ offset_right = 1157.0
 offset_bottom = 652.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
-position = Vector2(119.054, 90.25)
-scale = Vector2(0.277679, 0.277679)
-texture = ExtResource("2_woo07")
-
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 212.0
-offset_top = 66.0
-offset_right = 252.0
-offset_bottom = 138.0
-theme_override_colors/font_color = Color(0.329412, 0.545098, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_dq15m")
-theme_override_font_sizes/font_size = 50
-text = "x"
-
 [node name="Counter" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 252.0
-offset_top = 58.0
-offset_right = 295.0
-offset_bottom = 137.0
+offset_left = 201.0
+offset_top = 33.0
+offset_right = 244.0
+offset_bottom = 112.0
 theme_override_colors/font_color = Color(0.329412, 0.545098, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_dq15m")
 theme_override_font_sizes/font_size = 55
 text = "Q"
-script = ExtResource("3_kdlwl")
+script = ExtResource("6_hsb63")
 
 [node name="Timer" type="Timer" parent="Control/Counter"]
 
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(85.8036, 65.75)
+scale = Vector2(0.190179, 0.190179)
+texture = ExtResource("2_woo07")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 37.0
+offset_right = 203.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0.329412, 0.545098, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_lr1tp")
+theme_override_font_sizes/font_size = 50
+text = "x"
+
+[connection signal="orbCollected" from="GridMap/Orbs/Orb" to="Control/Counter" method="_on_orb_orb_collected"]
+[connection signal="orbCollected" from="GridMap/Orbs/Orb2" to="Control/Counter" method="_on_orb_orb_collected"]
+[connection signal="orbCollected" from="GridMap/Orbs/Orb3" to="Control/Counter" method="_on_orb_orb_collected"]
 [connection signal="timeout" from="Control/Counter/Timer" to="Control/Counter" method="_on_timer_timeout"]
