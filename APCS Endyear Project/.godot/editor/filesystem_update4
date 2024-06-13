@@ -10,3 +10,4 @@ res://tileset.meshlib/tiles_new.meshlib
 res://utils/level1.tscn
 res://OmniLight3D.gd
 res://utils/light.tscn
+res://utils/orb.tscn

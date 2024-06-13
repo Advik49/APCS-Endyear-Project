@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bay7pewyf2v8x"]
 
-[ext_resource type="Script" path="res://OmniLight3D.gd" id="1_3cpe7"]
+[ext_resource type="Script" path="res://utils/OmniLight3D.gd" id="1_u81sp"]
 
 [sub_resource type="Gradient" id="Gradient_4dkqs"]
 
@@ -18,7 +18,7 @@ noise = SubResource("FastNoiseLite_jmdal")
 [node name="Light" type="Node3D"]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-script = ExtResource("1_3cpe7")
+script = ExtResource("1_u81sp")
 noise = SubResource("NoiseTexture2D_fh64k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
