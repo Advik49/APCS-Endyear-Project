@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://debnw0kt2w020"]
+[gd_scene load_steps=8 format=3 uid="uid://debnw0kt2w020"]
+
+[ext_resource type="Script" path="res://utils/orb.gd" id="1_l8pmq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_m1ki7"]
 
@@ -72,6 +74,7 @@ _data = {
 }
 
 [node name="Orb" type="Area3D" groups=["Orb"]]
+script = ExtResource("1_l8pmq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_m1ki7")
@@ -89,3 +92,9 @@ libraries = {
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(0.329412, 0.545098, 1, 1)
 light_energy = 0.1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

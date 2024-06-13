@@ -1,28 +1,29 @@
-[gd_scene load_steps=10 format=3 uid="uid://hrny7yvy5wcr"]
+[gd_scene load_steps=11 format=3 uid="uid://hrny7yvy5wcr"]
 
 [ext_resource type="MeshLibrary" uid="uid://ckrdgmpv5f2as" path="res://tileset.meshlib/tiles_new.meshlib" id="1_glyrw"]
 [ext_resource type="PackedScene" uid="uid://t1ib3fsd3muw" path="res://utils/player.tscn" id="2_lwfe8"]
 [ext_resource type="PackedScene" uid="uid://bay7pewyf2v8x" path="res://utils/light.tscn" id="3_t8wim"]
 [ext_resource type="PackedScene" uid="uid://debnw0kt2w020" path="res://utils/orb.tscn" id="4_oslkv"]
 [ext_resource type="Texture2D" uid="uid://cjiajqtj1524p" path="res://utils/light.png" id="5_m1wr3"]
+[ext_resource type="Script" path="res://utils/Counter.gd" id="6_ne81t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wlemh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_r8hey"]
+[sub_resource type="Sky" id="Sky_5mxph"]
 sky_material = SubResource("ProceduralSkyMaterial_wlemh")
 
 [sub_resource type="Environment" id="Environment_o34pb"]
 background_mode = 1
-sky = SubResource("Sky_r8hey")
+sky = SubResource("Sky_5mxph")
 ambient_light_energy = 0.0
 tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="SystemFont" id="SystemFont_t1v3k"]
 
-[node name="Level" type="Node3D"]
+[node name="Level1" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_o34pb")
@@ -51,16 +52,17 @@ transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 10, 1,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.518201, -11.9584)
 
 [node name="Orb2" parent="GridMap/Orbs" instance=ExtResource("4_oslkv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7996, 0.518201, -4.61281)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5769, 0.518201, -3.84069)
 
 [node name="Orb3" parent="GridMap/Orbs" instance=ExtResource("4_oslkv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3375, 0.518201, -8.11431)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.024, 0.518201, -8.73036)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1157.0
 offset_bottom = 652.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
 position = Vector2(119.054, 90.25)
@@ -78,7 +80,7 @@ theme_override_fonts/font = SubResource("SystemFont_t1v3k")
 theme_override_font_sizes/font_size = 50
 text = "x"
 
-[node name="Label2" type="Label" parent="Control"]
+[node name="Counter" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 252.0
 offset_top = 58.0
@@ -88,3 +90,11 @@ theme_override_colors/font_color = Color(0.329412, 0.545098, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_t1v3k")
 theme_override_font_sizes/font_size = 55
 text = "Q"
+script = ExtResource("6_ne81t")
+
+[node name="Timer" type="Timer" parent="Control/Counter"]
+
+[connection signal="orbCollected" from="GridMap/Orbs/Orb" to="Control/Counter" method="_on_orb_orb_collected"]
+[connection signal="orbCollected" from="GridMap/Orbs/Orb2" to="Control/Counter" method="_on_orb_orb_collected"]
+[connection signal="orbCollected" from="GridMap/Orbs/Orb3" to="Control/Counter" method="_on_orb_orb_collected"]
+[connection signal="timeout" from="Control/Counter/Timer" to="Control/Counter" method="_on_timer_timeout"]
