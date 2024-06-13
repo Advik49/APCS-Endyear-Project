@@ -20,3 +20,9 @@ res://level1_winscreen.tscn
 res://Winscreens/level1_winscreen.tscn
 res://Levels/Counter.gd
 res://Winscreens/Button.gd
+res://Winscreens/PlayButton.gd
+res://Winscreens/menu.tscn
+res://Winscreens/InstructionButton.gd
+res://Winscreens/information.tscn
+res://utils/InstructionButton.gd
+res://utils/backbutton.gd

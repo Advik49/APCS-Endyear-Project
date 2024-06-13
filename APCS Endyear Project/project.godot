@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="APCS Endyear Project"
-run/main_scene="res://Levels/level1.tscn"
+run/main_scene="res://Winscreens/menu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://csctl7bmr5m7j"]
+
+[ext_resource type="Script" path="res://utils/PlayButton.gd" id="1_ibtw8"]
+[ext_resource type="Script" path="res://utils/InstructionButton.gd" id="2_e4p62"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 3044.0
+offset_bottom = 1732.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 135.0
+offset_right = 3044.0
+offset_bottom = 820.0
+rotation = -0.0645772
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.431373, 0, 1, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 6
+theme_override_font_sizes/font_size = 350
+text = "Dark Hour"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1003.0
+offset_top = 750.0
+offset_right = 2133.0
+offset_bottom = 1031.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.0392157, 0.27451, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.0392157, 0.27451, 1, 1)
+theme_override_font_sizes/font_size = 175
+text = "PLAY"
+flat = true
+script = ExtResource("1_ibtw8")
+
+[node name="InstructionButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 1149.0
+offset_right = 2190.0
+offset_bottom = 1430.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.0392157, 0.27451, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.0392157, 0.27451, 1, 1)
+theme_override_font_sizes/font_size = 175
+text = "INFORMATION"
+flat = true
+script = ExtResource("2_e4p62")
+
+[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="InstructionButton" to="InstructionButton" method="_on_pressed"]
