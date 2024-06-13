@@ -1,6 +1,8 @@
 Button
-ColorRect
 Control
+AudioStreamPlayer3D
+SpotLight3D
+ColorRect
 Label
 Timer
 Sprite2D
@@ -10,7 +12,6 @@ Node3D
 MeshInstance3D
 CollisionShape3D
 Area3D
-SpotLight3D
 GridMap
 NavigationRegion3D
 CSGBox3D

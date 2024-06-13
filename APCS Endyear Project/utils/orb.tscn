@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://debnw0kt2w020"]
+[gd_scene load_steps=9 format=3 uid="uid://debnw0kt2w020"]
 
 [ext_resource type="Script" path="res://utils/orb.gd" id="1_l8pmq"]
+[ext_resource type="AudioStream" uid="uid://0t0t7cde650g" path="res://Assets/sonar_ping.wav" id="2_6b4il"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_m1ki7"]
 
@@ -95,6 +96,12 @@ light_energy = 0.1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.4
+
+[node name="orbsound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_6b4il")
+volume_db = -15.385
+autoplay = true
+max_distance = 8.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

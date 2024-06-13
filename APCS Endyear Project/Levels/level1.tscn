@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://hrny7yvy5wcr"]
+[gd_scene load_steps=13 format=3 uid="uid://hrny7yvy5wcr"]
 
 [ext_resource type="MeshLibrary" uid="uid://ckrdgmpv5f2as" path="res://tileset.meshlib/tiles_new.meshlib" id="1_glyrw"]
 [ext_resource type="PackedScene" uid="uid://t1ib3fsd3muw" path="res://utils/player.tscn" id="2_lwfe8"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://debnw0kt2w020" path="res://utils/orb.tscn" id="4_oslkv"]
 [ext_resource type="Texture2D" uid="uid://cjiajqtj1524p" path="res://utils/light.png" id="5_m1wr3"]
 [ext_resource type="Script" path="res://utils/Counter.gd" id="6_ne81t"]
+[ext_resource type="AudioStream" uid="uid://c4f07eajcou3b" path="res://Assets/assets_ambient_ghost.ogg" id="7_0win7"]
+[ext_resource type="AudioStream" uid="uid://cog048x16t88v" path="res://Assets/whispers.wav" id="8_ucjn7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wlemh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -96,6 +98,16 @@ text = "Q"
 script = ExtResource("6_ne81t")
 
 [node name="Timer" type="Timer" parent="Control/Counter"]
+
+[node name="AmbientSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_0win7")
+volume_db = -21.518
+autoplay = true
+
+[node name="Whisper" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_ucjn7")
+volume_db = -18.662
+autoplay = true
 
 [connection signal="orbCollected" from="GridMap/Orbs/Orb" to="Control/Counter" method="_on_orb_orb_collected"]
 [connection signal="orbCollected" from="GridMap/Orbs/Orb2" to="Control/Counter" method="_on_orb_orb_collected"]

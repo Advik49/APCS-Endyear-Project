@@ -26,3 +26,6 @@ res://Winscreens/InstructionButton.gd
 res://Winscreens/information.tscn
 res://utils/InstructionButton.gd
 res://utils/backbutton.gd
+res://Winscreens/endscreen.tscn
+res://Winscreens/exitbutton.gd
+res://utils/Counter2.gd

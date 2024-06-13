@@ -8,6 +8,8 @@ const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var neck := $CameraPivot
 @onready var camera := $CameraPivot/Camera3D
+@onready var footsteps = $Footsteps
+var walking = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -28,6 +30,8 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("movement_left", "movement_right", "movement_forward", "movement_backward")
+	if Input.is_action_just_pressed("toggle_flashlight"):
+		$CameraPivot/SpotLight3D.visible = not $CameraPivot/SpotLight3D.visible
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -35,5 +39,15 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+	if velocity.x != 0 or velocity.y != 0:
+		walking = true
+	else:
+		walking = false
+		
+	if walking and !footsteps.playing:
+		footsteps.play()
+	if not walking and footsteps.playing:
+		footsteps.stop()
 
 	move_and_slide()

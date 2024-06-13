@@ -18,6 +18,7 @@ noise = SubResource("FastNoiseLite_jmdal")
 [node name="Light" type="Node3D"]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 0.01
 script = ExtResource("1_u81sp")
 noise = SubResource("NoiseTexture2D_fh64k")
 

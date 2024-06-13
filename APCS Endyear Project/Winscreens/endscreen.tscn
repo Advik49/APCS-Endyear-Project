@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://me3yhjyc56wh"]
+
+[ext_resource type="Script" path="res://utils/exitbutton.gd" id="1_u7tn6"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 3044.0
+offset_bottom = 1732.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 116.0
+offset_right = 3055.0
+offset_bottom = 801.0
+rotation = 0.0645772
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.431373, 0, 1, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 6
+theme_override_font_sizes/font_size = 350
+text = "Game Over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1003.0
+offset_top = 910.0
+offset_right = 2133.0
+offset_bottom = 1191.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.0392157, 0.27451, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.0392157, 0.27451, 1, 1)
+theme_override_font_sizes/font_size = 175
+text = "EXIT
+"
+flat = true
+script = ExtResource("1_u7tn6")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
